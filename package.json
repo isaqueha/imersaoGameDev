@@ -1,0 +1,18 @@
+{
+  "name": "imersaoGameDev",
+  "version": "0.0.1",
+  "description": "First Game developed in \"Imersão Game Dev\" event",
+  "main": "sketch.js",
+  "author": "Isaque Hoffmeister de Azevedo <isaque.ha@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "browser-sync start --server -f -w"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
