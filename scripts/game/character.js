@@ -1,33 +1,28 @@
-class Character { 
-  constructor(image) {
-    this.spriteWidth = 220;
-    this.spriteHeight = 270;
-    this.topPosition = height - this.spriteHeight;
+class Character extends Animation { 
+  constructor(image, x, width, newHeight, spriteWidth, spriteHeight, rows, columns) {
+    super(image, x, width, newHeight, spriteWidth, spriteHeight, rows, columns);
     
-    this.image = image;
-    this.imageWidth = image.width;
-    this.imageHeight = image.height;
-    this.imageRows = 4;
-    this.imageColumns = 4;
-    this.spriteCutX = this.imageWidth / this.imageColumns;
-    this.spriteCutY = this.imageHeight / this.imageRows;
-
-    this.currentFrame = 0;
+    this.initialY = height - this.height;
+    this.y = this.initialY; 
+    this.jumpSpeed = 0;
+    this.gravityValue = 6;
   }
-  
-  draw() {
-    const currentX = this.currentFrame % this.imageColumns * this.spriteCutX;
-    const currentY = Math.floor(this.currentFrame / this.imageRows) * this.spriteCutY;
 
-    image(this.image, 0, this.topPosition, this.spriteWidth, this.spriteHeight, currentX , currentY, this.spriteCutX, this.spriteCutY);
-    
-    this.animate();
+  jump() {
+    this.jumpSpeed = -50;
   }
-  
-  animate() {
-    this.currentFrame++;    
-    if(this.currentFrame >= (this.imageRows * this.imageColumns) - 1) {
-      this.currentFrame = 0;      
+
+  gravity() {
+    this.y = this.y + this.jumpSpeed;
+    this.jumpSpeed = this.jumpSpeed + this.gravityValue;
+
+    if (this.y > this.initialY) {
+      this.y = this.initialY;
     }
-  }  
+  }
+
+  isColliding(enemy) {
+    const precision = 0.85;
+    return collideRectRect(this.x, this.y, this.width * precision, this.height * precision, enemy.x, enemy.y, enemy.width * precision, enemy.height * precision);
+  }
 }
