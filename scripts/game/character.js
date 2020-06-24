@@ -5,11 +5,16 @@ class Character extends Animation {
     this.initialY = height - this.height;
     this.y = this.initialY; 
     this.jumpSpeed = 0;
-    this.gravityValue = 6;
+    this.gravityValue = 3;
+    this.jumps = 0;
+    this.maxJumps = 2;
   }
 
   jump() {
-    this.jumpSpeed = -50;
+    this.jumps = this.jumps + 1;
+    if (this.jumps <= this.maxJumps) {
+      this.jumpSpeed = -30;
+    }
   }
 
   gravity() {
@@ -18,6 +23,7 @@ class Character extends Animation {
 
     if (this.y > this.initialY) {
       this.y = this.initialY;
+      this.jumps = 0;
     }
   }
 
