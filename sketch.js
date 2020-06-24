@@ -1,6 +1,7 @@
 let imageScenario;
 let imageCharacter;
 let imageEnemy;
+let imageGameOver;
 
 let scenario;
 let gameMusic;
@@ -12,6 +13,7 @@ function preload() {
   imageScenario = loadImage('imagens/cenario/floresta.png');
   imageCharacter = loadImage('imagens/personagem/correndo.png');
   imageEnemy = loadImage('imagens/inimigos/gotinha.png');
+  imageGameOver = loadImage('imagens/assets/game-over.png')
   gameMusic = loadSound('sons/trilha_jogo.mp3');
   jumpSound = loadSound('sons/somPulo.mp3');
 }
@@ -29,6 +31,9 @@ function keyPressed() {
   if (key === 'ArrowUp') {
     character.jump();
     jumpSound.play();
+  } else if (key === 'r') {
+    enemy = new Enemy(imageEnemy, width - 50, 52, 52, 105, 104, 7, 4);
+    loop();
   }
 }
 
@@ -43,6 +48,7 @@ function draw() {
   enemy.move();
 
   if (character.isColliding(enemy)) {
+    image(imageGameOver, 100, 100, width - 200, height - 300);
     console.log("hit!");
     noLoop();
   }
