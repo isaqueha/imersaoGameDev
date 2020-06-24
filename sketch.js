@@ -49,7 +49,9 @@ function draw() {
 
   if (character.isColliding(enemy)) {
     image(imageGameOver, 100, 100, width - 200, height - 300);
-    console.log("hit!");
+    textSize(32);
+    fill(200, 200, 200);
+    text('The enemy got you', 150, 250);
     noLoop();
   }
 }
