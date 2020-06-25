@@ -1,6 +1,8 @@
 let imageScenario;
 let imageCharacter;
 let imageEnemy;
+let imageEnemyTroll;
+let imageEnemyFlying;
 let imageGameOver;
 let imageRunGif;
 
@@ -8,7 +10,9 @@ let scenario;
 let gameMusic;
 let jumpSound;
 let character;
-let enemy;
+let score;
+
+const enemies = [];
 
 let imageScenario1;
 let imageScenario2;
@@ -25,6 +29,8 @@ function preload() {
   imageScenario = loadImage('imagens/cenario/floresta.png');
   imageCharacter = loadImage('imagens/personagem/correndoJorge.png');
   imageEnemy = loadImage('imagens/inimigos/gotinhaCarol.png');
+  imageEnemyTroll = loadImage('imagens/inimigos/troll.png');
+  imageEnemyFlying = loadImage('imagens/inimigos/gotinha-voadora.png');
   imageGameOver = loadImage('imagens/assets/game-over.png')
   gameMusic = loadSound('sons/trilha_jogo.mp3');
   jumpSound = loadSound('sons/somPulo.mp3');
@@ -40,8 +46,18 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   scenario = new Scenario(imageScenario, 2);
-  character = new Character(imageCharacter, 0, 220, 270, 220, 270, 4, 4);
-  enemy = new Enemy(imageEnemy, width - 50, 100, 100, 105, 104, 7, 4);
+  character = new Character(imageCharacter, 0, 30, 220, 270, 220, 270, 4, 4);
+
+  score = new Score();
+  
+  const enemy = new Enemy(imageEnemy, width - 50, 30, 100, 100, 105, 104, 7, 4, 10, 200);
+  const enemyTroll = new Enemy(imageEnemyTroll, width - 50, 0, 200, 200, 400, 400, 5, 5, 10, 1500)
+  const enemyFlying = new Enemy(imageEnemyFlying, width - 50, 200, 150, 100, 200, 150, 5, 3, 10, 2500);
+
+  enemies.push(enemy);
+  enemies.push(enemyTroll);
+  enemies.push(enemyFlying);
+
   frameRate(30);
   gameMusic.loop();
 
@@ -63,7 +79,7 @@ function keyPressed() {
     character.jump();
     jumpSound.play();
   } else if (key === 'r') {
-    enemy = new Enemy(imageEnemy, width - 50, 52, 52, 105, 104, 7, 4);
+    enemy = new Enemy(imageEnemy, width - 50, 30, 52, 52, 105, 104, 7, 4, 10, 100);
     loop();
   }
 }
@@ -73,11 +89,24 @@ function draw() {
   scenario.draw();
   scenario.move();
 
+  score.draw();
+  score.addScore();
+
   character.draw();
   character.gravity();
 
-  enemy.draw();
-  enemy.move();
+  enemies.forEach(enemy => {
+    enemy.draw();
+    enemy.move();
+
+    if (character.isColliding(enemy)) {
+      image(imageGameOver, width/2 - 200, height/3);
+      textSize(32);
+      fill(200, 200, 200);
+      text('The enemy got you', 150, 250);
+      // noLoop(); 
+    }
+  })
 
   // OPTION 2
 
@@ -96,18 +125,10 @@ function draw() {
   // imageRunGif.size(46,68)
   // imageRunGif.position(50, height - 100);
 
-  if (character.isColliding(enemy)) {
-    image(imageGameOver, 100, 100, width - 200, height - 300);
-    textSize(32);
-    fill(200, 200, 200);
-    text('The enemy got you', 150, 250);
-    noLoop();
-  }
+  
 }
 
 // TODO
-// Jorge Sprite
 // Car Sprite
 // Points (KM run)
-// Tap with cell phone
 // Leaderboard???
