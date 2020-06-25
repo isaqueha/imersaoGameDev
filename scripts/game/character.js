@@ -1,19 +1,21 @@
 class Character extends Animation { 
-  constructor(image, x, width, newHeight, spriteWidth, spriteHeight, rows, columns) {
-    super(image, x, width, newHeight, spriteWidth, spriteHeight, rows, columns);
+  constructor(image, x, yDiff, width, newHeight, spriteWidth, spriteHeight, rows, columns) {
+    super(image, x, yDiff, width, newHeight, spriteWidth, spriteHeight, rows, columns);
     
-    this.initialY = height - this.height;
+    this.yDiff = yDiff;
+    this.initialY = height - this.height - this.yDiff;
     this.y = this.initialY; 
     this.jumpSpeed = 0;
     this.gravityValue = 3;
     this.jumps = 0;
     this.maxJumps = 2;
+    this.jumpHeight = -30;
   }
 
   jump() {
     this.jumps = this.jumps + 1;
     if (this.jumps <= this.maxJumps) {
-      this.jumpSpeed = -30;
+      this.jumpSpeed = this.jumpHeight;
     }
   }
 
@@ -29,6 +31,12 @@ class Character extends Animation {
 
   isColliding(enemy) {
     const precision = 0.85;
+    
+    // Check boxes
+    // noFill()
+    // rect()
+    // rect()
+
     return collideRectRect(this.x, this.y, this.width * precision, this.height * precision, enemy.x, enemy.y, enemy.width * precision, enemy.height * precision);
   }
 }
