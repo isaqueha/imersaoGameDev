@@ -5,6 +5,7 @@ class Button {
 		this.y = y;
 		this.button = createButton(this.text);
 		this.button.mousePressed(() => this._changeScene());
+		this.button.touchStarted(() => this._changeScene());
 		this.button.addClass('botao-tela-inicial');
 	}
 
