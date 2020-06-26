@@ -17,11 +17,11 @@ class Game {
 		enemies.push(enemyTroll);
 		enemies.push(enemyFlying);
 	
-		scenario1 = new Scenario(imageScenario1, 0.2);
-		scenario2 = new Scenario(imageScenario2, .3);
-		scenario3 = new Scenario(imageScenario3, .4);
-		scenario4 = new Scenario(imageScenario4, .5);
-		scenario5 = new Scenario(imageScenario5, 1);
+		scenario1 = new Scenario(imageScenario1, 0.8);
+		scenario2 = new Scenario(imageScenario2, 1);
+		scenario3 = new Scenario(imageScenario3, 1.5);
+		scenario4 = new Scenario(imageScenario4, 2);
+		scenario5 = new Scenario(imageScenario5, 4);
 	}
 
 	keyPressed(key) {
@@ -36,8 +36,22 @@ class Game {
 
 	draw() {
 		// OPTION 1
-		scenario.draw();
-		scenario.move();
+		// scenario.draw();
+		// scenario.move();
+
+		// OPTION 2
+
+		scenario1.draw();
+		scenario2.draw();
+		scenario3.draw();
+		scenario4.draw();
+		scenario5.draw();
+		
+		scenario1.move();
+		scenario2.move();
+		scenario3.move();
+		scenario4.move();
+		scenario5.move();
 	
 		score.draw();
 		score.addScore();
@@ -67,19 +81,7 @@ class Game {
 			// noLoop(); 
 		}
 	
-		// OPTION 2
 	
-		// scenario1.draw();
-		// scenario2.draw();
-		// scenario3.draw();
-		// scenario4.draw();
-		// scenario5.draw();
-		
-		// scenario1.move();
-		// scenario2.move();
-		// scenario3.move();
-		// scenario4.move();
-		// scenario5.move();
 	
 		// imageRunGif.size(46,68)
 		// imageRunGif.position(50, height - 100);
