@@ -1,3 +1,4 @@
 # imersaoGameDev
 
-https://app.netlify.com/sites/elated-poitras-74b9ee/overview
+Jogue o Corrida do Jorge aqui:
+https://elated-poitras-74b9ee.netlify.app/
