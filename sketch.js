@@ -27,7 +27,12 @@ function draw() {
 }
 
 // TODO
+// Reset button
 // Initial Enemy
+// Story
+// More enemies
+// Refactor constructors
+// Game over text
 // Car Sprite
 // Points (KM run)
 // Leaderboard???
