@@ -10,6 +10,8 @@ class Character extends Animation {
     this.jumps = 0;
     this.maxJumps = 2;
     this.jumpHeight = -30;
+
+    this.invencible = false;
   }
 
   jump() {
@@ -30,6 +32,9 @@ class Character extends Animation {
   }
 
   isColliding(enemy) {
+    if(this.invencible) {
+      return false;
+    }
     const precision = 0.85;
     
     // Check boxes
@@ -38,5 +43,12 @@ class Character extends Animation {
     // rect()
 
     return collideRectRect(this.x, this.y, this.width * precision, this.height * precision, enemy.x, enemy.y, enemy.width * precision, enemy.height * precision);
+  }
+
+  makeInvencible() {
+    this.invencible = true;
+    setTimeout(() => {
+      this.invencible = false;
+    }, 1000)
   }
 }
