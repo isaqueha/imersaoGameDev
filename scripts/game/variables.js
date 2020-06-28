@@ -21,7 +21,7 @@ let score;
 let map;
 
 
-let currentScene = 'game';
+let currentScene = 'start';
 let scenes = [];
 
 const enemies = [];

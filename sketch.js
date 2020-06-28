@@ -27,16 +27,16 @@ function draw() {
 }
 
 // TODO
+// Points (KM run)
+// Game over text
+// More enemies
+// 2nd level
 // Reset button
-// Diminuir char size
+// Outras pessoas
+// Car Sprite
+// Refactor constructors
+// Better collisions
 // Initial Enemy
 // Story
-// More enemies
-// Refactor constructors
-// Game over text
-// Better collisions
 // PowerUp?
-// 2nd level
-// Car Sprite
-// Points (KM run)
 // Leaderboard???
