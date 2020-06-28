@@ -7,7 +7,9 @@ function preload() {
 	imageGameOver = loadImage('imagens/assets/game-over.png');
 	imageStart = loadImage('imagens/assets/telaInicial.png');
 	fontStart = loadFont('imagens/assets/fonteTelaInicial.otf');
+	imageLive = loadImage('imagens/assets/coracao.png')
 
+  map = loadJSON('maps/map.json');
   gameMusic = loadSound('sons/trilha_jogo.mp3');
   jumpSound = loadSound('sons/somPulo.mp3');
   // imageRunGif = createImg("imagens/personagem/sprites/run outline.gif");

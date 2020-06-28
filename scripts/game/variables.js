@@ -7,6 +7,8 @@ let imageGameOver;
 let imageRunGif;
 let imageStart;
 let fontStart;
+let imageLive;
+let live;
 let button;
 let game;
 let start;
@@ -16,8 +18,10 @@ let gameMusic;
 let jumpSound;
 let character;
 let score;
+let map;
 
-let currentScene = 'start';
+
+let currentScene = 'game';
 let scenes = [];
 
 const enemies = [];

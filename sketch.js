@@ -28,11 +28,15 @@ function draw() {
 
 // TODO
 // Reset button
+// Diminuir char size
 // Initial Enemy
 // Story
 // More enemies
 // Refactor constructors
 // Game over text
+// Better collisions
+// PowerUp?
+// 2nd level
 // Car Sprite
 // Points (KM run)
 // Leaderboard???
