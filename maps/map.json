@@ -1,7 +1,7 @@
 {
   "config": {
-    "maxLives": 10,
-    "initialLives": 10
+    "maxLives": 1,
+    "initialLives": 1
   },
   "map": [
     {
@@ -9,7 +9,7 @@
       "velocity": 10
     },
     {
-      "enemy": 1,
+      "enemy": 2,
       "velocity": 20
     },
     {

@@ -6,14 +6,14 @@ class Game {
 
 	setup() {
 		scenario = new Scenario(imageScenario, 2);
-		character = new Character(imageCharacter, 0, 30, 220, 270, 220, 270, 4, 4);
+		character = new Character(imageCharacter, 0, 30, 147, 180, 220, 270, 4, 4);
 		live = new Live(map.config.maxLives, map.config.initialLives);
 	
 		score = new Score();
 		
-		const enemy = new Enemy(imageEnemy, width - 50, 30, 100, 100, 105, 104, 7, 4, 10);
-		const enemyTroll = new Enemy(imageEnemyTroll, width - 50, 0, 200, 200, 400, 400, 5, 5, 10)
-		const enemyFlying = new Enemy(imageEnemyFlying, width - 50, 200, 150, 100, 200, 150, 5, 3, 10);
+		const enemy = new Enemy(imageEnemy, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
+		const enemyTroll = new Enemy(imageEnemyTroll, width - 50, 0, 250, 250, 400, 400, 5, 5, 10)
+		const enemyFlying = new Enemy(imageEnemyFlying, width - 50, 75, 150, 100, 200, 150, 5, 3, 10);
 	
 		enemies.push(enemy);
 		enemies.push(enemyTroll);
