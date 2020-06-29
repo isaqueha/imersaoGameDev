@@ -7,7 +7,9 @@ class Score {
 		textAlign(RIGHT)
 		fill('#fff');
 		textSize(50);
-		text(parseInt(this.score), width - 30, 50)
+		text("Distancia:", width - 30, 50);
+		fill('#f77');
+		text(parseInt(this.score) + " m", width - 30, 100);
 	}
 
 	addScore() {
