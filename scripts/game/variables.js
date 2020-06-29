@@ -5,6 +5,7 @@ let imageEnemyTroll;
 let imageEnemyFlying;
 let imageGameOver;
 let imageRunGif;
+let imageJorgeBate;
 let imageStart;
 let fontStart;
 let imageLive;

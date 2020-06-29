@@ -5,9 +5,11 @@ function setup() {
   game = new Game();
   game.setup();
   start = new Start();
+  gameOver = new GameOver();
   scenes = {
+    start,
     game,
-    start
+    gameOver
   };
   button = new Button("Start", width/2, height/2);
 }
@@ -27,16 +29,15 @@ function draw() {
 }
 
 // TODO
-// Points (KM run)
-// Game over text
-// More enemies
-// 2nd level
-// Reset button
-// Outras pessoas
-// Car Sprite
+// Reset button & flow
 // Refactor constructors
 // Better collisions
-// Initial Enemy
+// More enemies
+// Outras pessoas
+// Change jorge char
+// Car Sprite
+// 2nd level
 // Story
+// Initial Enemy (WHAT IS THAT?)
 // PowerUp?
 // Leaderboard???

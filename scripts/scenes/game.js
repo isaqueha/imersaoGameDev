@@ -70,7 +70,7 @@ class Game {
 		enemy.velocity = currentLine.velocity;
 		enemy.draw();
 		enemy.move();
-		console.log(enemy.x);
+		// console.log(enemy.x);
 	
 		if (isEnemyDone) {
 			this.enemyIndex++;
@@ -84,11 +84,7 @@ class Game {
 			live.loseLive();
 			character.makeInvencible();
 			if(live.currentLives < 0) {
-				image(imageGameOver, width/2 - 200, height/3);
-				textSize(32);
-				fill(200, 200, 200);
-				text('The enemy got you', 150, 250);
-				noLoop();
+				currentScene = 'gameOver';
 			}
 		}
 	
