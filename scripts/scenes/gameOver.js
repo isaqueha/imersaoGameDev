@@ -7,6 +7,10 @@ class GameOver {
 		imageJorgeBate.hide();
 	}
 
+	setup() {
+		
+	}
+
 	draw() {
 		this._backgroundImage();
 		this._text();
@@ -14,9 +18,10 @@ class GameOver {
 	}
 	
 	_backgroundImage() {
-		// imageMode(CENTER);
 		imageJorgeBate.show();
-		image(imageGameOver, width / 2, height / 3);		
+		imageMode(CENTER);
+		image(imageGameOver, width / 2, height / 3);
+		imageMode(CORNER);
 	}
 
 	_text() {

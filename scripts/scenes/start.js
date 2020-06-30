@@ -3,6 +3,12 @@ class Start {
 		this.button = new Button("Start", width/2, height/2, 'game');
 	}
 
+	setup() {
+		if (imageJorgeBate) {
+			imageJorgeBate.hide();
+		}
+	}
+
 	draw() {
 		this._backgroundImage();
 		this._text();

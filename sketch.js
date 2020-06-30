@@ -3,7 +3,6 @@ function setup() {
   frameRate(30);
   gameMusic.loop();
   game = new Game();
-  game.setup();
   start = new Start();
   gameOver = new GameOver();
   scenes = {

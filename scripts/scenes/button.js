@@ -20,8 +20,6 @@ class Button {
 	_changeScene() {
 		this.button.hide();
 		currentScene = this.nextScene;
-		if (imageJorgeBate) {
-			imageJorgeBate.hide();
-		}
+		scenes[currentScene].setup();
 	}
 }
