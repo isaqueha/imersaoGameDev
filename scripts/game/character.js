@@ -1,9 +1,9 @@
 class Character extends Animation { 
-  constructor(image, x, yDiff, width, newHeight, spriteWidth, spriteHeight, rows, columns) {
-    super(image, x, yDiff, width, newHeight, spriteWidth, spriteHeight, rows, columns);
+  constructor(image, x, yDiff, newWidth, newHeight, spriteWidth, spriteHeight, rows, columns) {
+    super(image, x, yDiff, newWidth, newHeight, spriteWidth, spriteHeight, rows, columns);
     
     this.yDiff = yDiff;
-    this.initialY = height - this.height - this.yDiff;
+    this.initialY = height - this.newHeight - this.yDiff;
     this.y = this.initialY; 
     this.jumpSpeed = 0;
     this.gravityValue = 3;
@@ -42,7 +42,7 @@ class Character extends Animation {
     // rect()
     // rect()
 
-    return collideRectRect(this.x, this.y, this.width * precision, this.height * precision, enemy.x, enemy.y, enemy.width * precision, enemy.height * precision);
+    return collideRectRect(this.x, this.y, this.newWidth * precision, this.newHeight * precision, enemy.x, enemy.y, enemy.newWidth * precision, enemy.newHeight * precision);
   }
 
   makeInvencible() {

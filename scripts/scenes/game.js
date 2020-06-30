@@ -65,7 +65,7 @@ class Game {
 	
 		const currentLine = this.map[this.enemyIndex];
 		const enemy = enemies[currentLine.enemy];
-		const isEnemyDone = enemy.x < - enemy.width;
+		const isEnemyDone = enemy.x < - enemy.newWidth;
 	
 		enemy.velocity = currentLine.velocity;
 		enemy.draw();

@@ -1,11 +1,11 @@
 class Animation {
-	constructor(image, x, yDiff, width, newHeight, spriteWidth, spriteHeight, rows, columns) {
+	constructor(image, x, yDiff, newWidth, newHeight, spriteWidth, spriteHeight, rows, columns) {
 		this.image = image;
-		this.width = width;
-		this.height = newHeight;
+		this.newWidth = newWidth;
+		this.newHeight = newHeight;
 		this.x = x;
 		this.yDiff = yDiff;
-		this.y = height - this.height - this.yDiff;
+		this.y = height - this.newHeight - this.yDiff;
 		this.spriteWidth = spriteWidth;
 		this.spriteHeight = spriteHeight;
 		this.imageRows = rows;
@@ -15,12 +15,12 @@ class Animation {
 	}	
   
   draw() {
-    const currentX = this.currentFrame % this.imageColumns * this.spriteWidth;
+		const currentX = this.currentFrame % this.imageColumns * this.spriteWidth;
 		let currentY = Math.floor(this.currentFrame / this.imageColumns) * this.spriteHeight;
-		// Droppy;
+		// For Droppy;
 		currentY -= (Math.floor(this.currentFrame / (this.imageColumns * this.imageColumns))) * 13;
 
-    image(this.image, this.x, this.y, this.width, this.height, currentX , currentY, this.spriteWidth, this.spriteHeight);
+    image(this.image, this.x, this.y, this.newWidth, this.newHeight, currentX , currentY, this.spriteWidth, this.spriteHeight);
     
     this.animate();
 	}
