@@ -12,8 +12,9 @@ class Scenario {
   }
 
   move() {
-    this.x1 = this.x1 - this.velocity;
-    this.x2 = this.x2 - this.velocity;
+    const newX = width / 500 * this.velocity;
+    this.x1 = this.x1 - newX;
+    this.x2 = this.x2 - newX;
 
     if (this.x1 < -width) {
       this.x1 = width;
