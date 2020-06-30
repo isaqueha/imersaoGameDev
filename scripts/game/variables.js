@@ -10,7 +10,6 @@ let imageStart;
 let fontStart;
 let imageLive;
 let live;
-let button;
 let game;
 let start;
 

@@ -11,7 +11,6 @@ function setup() {
     game,
     gameOver
   };
-  button = new Button("Start", width/2, height/2);
 }
 
 function touchStarted() {

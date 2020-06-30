@@ -1,22 +1,22 @@
 class GameOver {
 	constructor() {
-
-	}
-
-	draw() {
-		button = new Button("Restart", width/2, height/2);
-		this._backgroundImage();
-		this._text();
-		this._button();
-		noLoop();
-	}
-	
-	_backgroundImage() {
-		imageMode(CENTER);
-		image(imageGameOver, width / 2, height / 3);
+		this.button = new Button("Restart", width/2, height/2, 'start');
 		imageJorgeBate = createImg("imagens/personagem/JorgeBate.gif");
 		imageJorgeBate.size(100,150)
 		imageJorgeBate.position(width/4, height/5 * 3);
+		imageJorgeBate.hide();
+	}
+
+	draw() {
+		this._backgroundImage();
+		this._text();
+		this._button();
+	}
+	
+	_backgroundImage() {
+		// imageMode(CENTER);
+		imageJorgeBate.show();
+		image(imageGameOver, width / 2, height / 3);		
 	}
 
 	_text() {
@@ -28,7 +28,7 @@ class GameOver {
 	}
 
 	_button() {
-		button.y = height / 5 * 3
-		button.draw();
+		this.button.y = height / 5 * 3
+		this.button.draw();
 	}
 }

@@ -1,6 +1,6 @@
 class Start {
 	constructor() {
-
+		this.button = new Button("Start", width/2, height/2, 'game');
 	}
 
 	draw() {
@@ -16,6 +16,7 @@ class Start {
 	_text() {
 		textFont(fontStart);
 		textAlign(CENTER);
+		fill(0, 0, 0);
 		textSize(50);
 		text("Corrida do", width / 2, height / 6);
 		textSize(150);
@@ -23,7 +24,7 @@ class Start {
 	}
 
 	_button() {
-		button.y = height / 5 * 3
-		button.draw();
+		this.button.y = height / 5 * 3;
+		this.button.draw();
 	}
 }
