@@ -35,14 +35,20 @@ class Character extends Animation {
     if(this.invencible) {
       return false;
     }
-    const precision = 0.85;
+    const precision = 0.5;
+    const precisionX = (this.newWidth - (this.newWidth * precision)) / 2;
+    const precisionY = (this.newHeight - (this.newHeight * precision)) / 2;
+    const precisionXEnemy = (enemy.newWidth - (enemy.newWidth * precision)) / 2;
+    const precisionYEnemy = (enemy.newHeight - (enemy.newHeight * precision)) / 2;
     
     // Check boxes
-    // noFill()
-    // rect()
-    // rect()
+    /*
+    noFill();
+    rect(this.x + precisionX, this.y + precisionY, this.newWidth - precisionX * 2, this.newHeight - precisionY * 2);
+    rect(enemy.x + precisionXEnemy, enemy.y + precisionYEnemy, enemy.newWidth - precisionXEnemy * 2, enemy.newHeight - precisionYEnemy * 2);
+    */
 
-    return collideRectRect(this.x, this.y, this.newWidth * precision, this.newHeight * precision, enemy.x, enemy.y, enemy.newWidth * precision, enemy.newHeight * precision);
+    return collideRectRect(this.x + precisionX, this.y + precisionY, this.newWidth - precisionX * 2, this.newHeight - precisionY * 2, enemy.x + precisionXEnemy, enemy.y + precisionYEnemy, enemy.newWidth - precisionXEnemy * 2, enemy.newHeight - precisionYEnemy * 2);
   }
 
   makeInvencible() {

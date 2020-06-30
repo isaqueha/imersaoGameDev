@@ -27,9 +27,8 @@ function draw() {
 }
 
 // TODO
-// Reset button & flow
+// ScoreBoard
 // Refactor constructors
-// Better collisions
 // More enemies
 // Outras pessoas
 // Change jorge char
