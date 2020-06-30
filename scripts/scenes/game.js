@@ -55,15 +55,15 @@ class Game {
 		// scenario3.move();
 		// scenario4.move();
 		// scenario5.move();
-
-		live.draw();
-	
+		
 		score.draw();
 		score.addScore();
-	
+		
 		character.draw();
 		character.gravity();
-	
+
+		live.draw();
+
 		const currentLine = this.map[this.enemyIndex];
 		const enemy = this.enemies[currentLine.enemy];
 		const isEnemyDone = enemy.x < - enemy.newWidth;
@@ -80,12 +80,13 @@ class Game {
 				this.enemyIndex = 0;
 			}
 		}
-	
+		
 		if (character.isColliding(enemy)) {
 			live.loseLive();
 			character.makeInvencible();
 			if(live.currentLives < 0) {
 				currentScene = 'gameOver';
+				score.saveScore();
 			}
 		}
 	

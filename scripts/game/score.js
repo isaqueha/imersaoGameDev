@@ -15,4 +15,13 @@ class Score {
 	addScore() {
 		this.score = this.score + 0.2;
 	}
+
+	saveScore() {
+		let obj = { 
+			table: []
+		};
+		obj.table.push({id: 1, score});
+		let json = JSON.stringify(obj);
+		// fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+	}
 }
