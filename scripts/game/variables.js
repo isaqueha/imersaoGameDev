@@ -24,8 +24,6 @@ let map;
 let currentScene = 'start';
 let scenes = [];
 
-const enemies = [];
-
 let imageScenario1;
 let imageScenario2;
 let imageScenario3;

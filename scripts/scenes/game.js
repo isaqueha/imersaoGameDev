@@ -1,23 +1,24 @@
 class Game {
 	constructor() {
-		this.enemyIndex = 0;
 		this.map = map.map;
 	}
-
+	
 	setup() {
 		scenario = new Scenario(imageScenario, 2);
 		character = new Character(imageCharacter, 0, 30, 147, 180, 220, 270, 4, 4);
 		live = new Live(map.config.maxLives, map.config.initialLives);
-	
+		
 		score = new Score();
 		
 		const enemy = new Enemy(imageEnemy, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
 		const enemyTroll = new Enemy(imageEnemyTroll, width - 50, 0, 250, 250, 400, 400, 5, 5, 10)
 		const enemyFlying = new Enemy(imageEnemyFlying, width - 50, 75, 150, 100, 200, 150, 5, 3, 10);
-	
-		enemies.push(enemy);
-		enemies.push(enemyTroll);
-		enemies.push(enemyFlying);
+		
+		this.enemyIndex = 0;
+		this.enemies = [];
+		this.enemies.push(enemy);
+		this.enemies.push(enemyTroll);
+		this.enemies.push(enemyFlying);
 	
 		// scenario1 = new Scenario(imageScenario1, 0.8);
 		// scenario2 = new Scenario(imageScenario2, 1);
@@ -64,7 +65,7 @@ class Game {
 		character.gravity();
 	
 		const currentLine = this.map[this.enemyIndex];
-		const enemy = enemies[currentLine.enemy];
+		const enemy = this.enemies[currentLine.enemy];
 		const isEnemyDone = enemy.x < - enemy.newWidth;
 	
 		enemy.velocity = currentLine.velocity;
