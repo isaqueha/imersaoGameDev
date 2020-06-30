@@ -28,11 +28,10 @@ function draw() {
 
 // TODO
 // ScoreBoard
-// Refactor constructors
 // More enemies
-// Outras pessoas
-// Change jorge char
 // Car Sprite
+// Change jorge char
+// Refactor constructors
 // 2nd level
 // Story
 // Initial Enemy (WHAT IS THAT?)

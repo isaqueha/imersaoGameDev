@@ -2,8 +2,8 @@ function preload() {
   imageScenario = loadImage('imagens/cenario/floresta.png');
   imageCharacter = loadImage('imagens/personagem/correndoJorge.png');
   imageEnemy = loadImage('imagens/inimigos/gotinhaCarol.png');
-  imageEnemyTroll = loadImage('imagens/inimigos/troll.png');
-  imageEnemyFlying = loadImage('imagens/inimigos/gotinha-voadora.png');
+  imageEnemyTroll = loadImage('imagens/inimigos/trollMauro.png');
+  imageEnemyFlying = loadImage('imagens/inimigos/gotinha-voadoraMiguel.png');
 	imageGameOver = loadImage('imagens/assets/game-over.png');
 	imageStart = loadImage('imagens/assets/telaInicial.png');
 	fontStart = loadFont('imagens/assets/fonteTelaInicial.otf');
