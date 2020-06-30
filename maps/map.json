@@ -10,15 +10,15 @@
     },
     {
       "enemy": 2,
-      "velocity": 20
+      "velocity": 15
     },
     {
       "enemy": 1,
-      "velocity": 25
+      "velocity": 12
     },
     {
       "enemy": 2,
-      "velocity": 40
+      "velocity": 8
     }
   ]
 }
