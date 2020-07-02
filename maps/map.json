@@ -9,16 +9,32 @@
       "velocity": 8
     },
     {
-      "enemy": 2,
+      "enemy": 1,
       "velocity": 10
     },
     {
-      "enemy": 1,
+      "enemy": 2,
       "velocity": 12
     },
     {
-      "enemy": 2,
-      "velocity": 7
+      "enemy": 3,
+      "velocity": 13
+    },
+    {
+      "enemy": 4,
+      "velocity": 14
+    },
+    {
+      "enemy": 5,
+      "velocity": 15
+    },
+    {
+      "enemy": 6,
+      "velocity": 13
+    },
+    {
+      "enemy": 7,
+      "velocity": 17
     }
   ]
 }

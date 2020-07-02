@@ -27,13 +27,13 @@ function draw() {
 }
 
 // TODO
+// Heart Lost Sound
 // ScoreBoard
-// More enemies
-// Car Sprite
-// Change jorge char
 // Refactor constructors
+// Outline the enemy in RED
 // 2nd level
 // Story
-// Initial Enemy (WHAT IS THAT?)
+// Change jorge char
+// Car Sprite
 // PowerUp?
 // Leaderboard???

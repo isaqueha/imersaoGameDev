@@ -10,15 +10,33 @@ class Game {
 		
 		score = new Score();
 		
-		const enemy = new Enemy(imageEnemy, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
-		const enemyTroll = new Enemy(imageEnemyTroll, width - 50, 0, 250, 250, 400, 400, 5, 5, 10)
-		const enemyFlying = new Enemy(imageEnemyFlying, width - 50, 75, 150, 100, 200, 150, 5, 3, 10);
-		
 		this.enemyIndex = 0;
 		this.enemies = [];
-		this.enemies.push(enemy);
-		this.enemies.push(enemyTroll);
-		this.enemies.push(enemyFlying);
+
+		// const enemyFlying = new Enemy(imageEnemyFlying, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
+		// const enemy = new Enemy(imageEnemy, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
+		// const enemyTroll = new Enemy(imageEnemyTroll, width - 50, 0, 250, 250, 400, 400, 5, 5, 10)
+		// this.enemies.push(enemy);
+		// this.enemies.push(enemyTroll);
+		// this.enemies.push(enemyFlying);
+		
+		const enemyMiguel = new Enemy(imageEnemyMiguel, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
+		const enemyPedroTri = new Enemy(imageEnemyPedroTri, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
+		const enemyYuri = new Enemy(imageEnemyYuri, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
+		const enemyCarol = new Enemy(imageEnemyCarol, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
+		const enemyMel = new Enemy(imageEnemyMel, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
+		const enemyGabriel = new Enemy(imageEnemyGabriel, width - 50, 0, 250, 250, 400, 400, 5, 5, 10);
+		const enemyMauro = new Enemy(imageEnemyMauro, width - 50, 0, 250, 250, 400, 400, 5, 5, 10);
+		const enemyPedro = new Enemy(imageEnemyPedro, width - 50, 0, 250, 250, 400, 400, 5, 5, 10);
+		
+		this.enemies.push(enemyMiguel);
+		this.enemies.push(enemyPedroTri);
+		this.enemies.push(enemyYuri);
+		this.enemies.push(enemyCarol);
+		this.enemies.push(enemyMel);
+		this.enemies.push(enemyGabriel);
+		this.enemies.push(enemyMauro);
+		this.enemies.push(enemyPedro);
 	
 		// scenario1 = new Scenario(imageScenario1, 0.8);
 		// scenario2 = new Scenario(imageScenario2, 1);
@@ -31,9 +49,6 @@ class Game {
 		if (key === 'ArrowUp') {
 			character.jump();
 			jumpSound.play();
-		} else if (key === 'r') {
-			enemy = new Enemy(imageEnemy, width - 50, 30, 52, 52, 105, 104, 7, 4, 10, 100);
-			loop();
 		}
 	}
 

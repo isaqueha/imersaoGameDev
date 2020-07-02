@@ -1,5 +1,13 @@
 let imageScenario;
 let imageCharacter;
+let imageEnemyMiguel;
+let imageEnemyPedroTri;
+let imageEnemyYuri;
+let imageEnemyCarol;
+let imageEnemyMel;
+let imageEnemyGabriel;
+let imageEnemyMauro;
+let imageEnemyPedro;
 let imageEnemy;
 let imageEnemyTroll;
 let imageEnemyFlying;
