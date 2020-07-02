@@ -24,6 +24,7 @@ let start;
 let scenario;
 let gameMusic;
 let jumpSound;
+let damageSound;
 let character;
 let score;
 let map;

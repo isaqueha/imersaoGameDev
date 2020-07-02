@@ -22,6 +22,7 @@ function preload() {
   map = loadJSON('maps/map.json');
   gameMusic = loadSound('sons/trilha_jogo.mp3');
   jumpSound = loadSound('sons/somPulo.mp3');
+  damageSound = loadSound('sons/damageSound.mp3');
   // imageRunGif = createImg("imagens/personagem/sprites/run outline.gif");
 
   imageScenario1 = loadImage('imagens/cenario/jungle/plx-1.png');

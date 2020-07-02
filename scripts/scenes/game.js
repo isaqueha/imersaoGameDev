@@ -99,6 +99,7 @@ class Game {
 		if (character.isColliding(enemy)) {
 			live.loseLive();
 			character.makeInvencible();
+			damageSound.play();
 			if(live.currentLives < 0) {
 				currentScene = 'gameOver';
 				score.saveScore();

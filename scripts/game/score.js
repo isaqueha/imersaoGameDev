@@ -22,6 +22,7 @@ class Score {
 		};
 		obj.table.push({id: 1, score});
 		let json = JSON.stringify(obj);
+		// saveJSON(json, 'scores.json');
 		// fs.writeFile('myjsonfile.json', json, 'utf8', callback);
 	}
 }
