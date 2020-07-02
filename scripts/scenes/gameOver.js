@@ -18,7 +18,7 @@ class GameOver {
 	}
 	
 	_backgroundImage() {
-		imageJorgeBate.show();
+		// imageJorgeBate.show();
 		imageMode(CENTER);
 		image(imageGameOver, width / 2, height / 3);
 		imageMode(CORNER);

@@ -4,9 +4,6 @@ class Start {
 	}
 
 	setup() {
-		if (imageJorgeBate) {
-			imageJorgeBate.hide();
-		}
 	}
 
 	draw() {

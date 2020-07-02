@@ -12,9 +12,16 @@ class Animation {
     this.imageColumns = columns;
 		
 		this.currentFrame = 0;
+		this.invencibleDraw = false;
 	}	
   
   draw() {
+		if (this.invencible && this.invencibleDraw) {
+			this.invencibleDraw = false;
+			return;
+		} else if (this.invencible && !this.invencibleDraw) {
+			this.invencibleDraw = true;
+		}
 		const currentX = this.currentFrame % this.imageColumns * this.spriteWidth;
 		let currentY = Math.floor(this.currentFrame / this.imageColumns) * this.spriteHeight;
 		// For Droppy;
