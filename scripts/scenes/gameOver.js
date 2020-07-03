@@ -8,13 +8,16 @@ class GameOver {
 	}
 
 	setup() {
-		
+		this.hasDrawn = false;
 	}
 
 	draw() {
-		this._backgroundImage();
-		this._text();
-		this._button();
+		if (!this.hasDrawn) {
+			this._backgroundImage();
+			this._text();
+			this._button();
+			this.hasDrawn = true;
+		}
 	}
 	
 	_backgroundImage() {
@@ -28,7 +31,7 @@ class GameOver {
 		textFont(fontStart);
 		textAlign(CENTER);
 		textSize(50);
-		fill(200, 200, 200);
+		fill(255, 255, 255);
 		text("Os jovens cansaram o Jorge", width / 2, height / 4);
 	}
 

@@ -4,6 +4,8 @@ class Start {
 	}
 
 	setup() {
+		stroke(0, 0, 0);
+		strokeWeight(0);
 	}
 
 	draw() {

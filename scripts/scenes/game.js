@@ -9,6 +9,9 @@ class Game {
 		live = new Live(map.config.maxLives, map.config.initialLives);
 		
 		score = new Score();
+
+		stroke(0, 0, 0);
+		strokeWeight(3);
 		
 		this.enemyIndex = 0;
 		this.enemies = [];
@@ -23,11 +26,11 @@ class Game {
 		const enemyMiguel = new Enemy(imageEnemyMiguel, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
 		const enemyPedroTri = new Enemy(imageEnemyPedroTri, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
 		const enemyYuri = new Enemy(imageEnemyYuri, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
-		const enemyCarol = new Enemy(imageEnemyCarol, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
-		const enemyMel = new Enemy(imageEnemyMel, width - 50, 30, 75, 75, 105, 104, 7, 4, 10);
-		const enemyGabriel = new Enemy(imageEnemyGabriel, width - 50, 0, 250, 250, 400, 400, 5, 5, 10);
-		const enemyMauro = new Enemy(imageEnemyMauro, width - 50, 0, 250, 250, 400, 400, 5, 5, 10);
-		const enemyPedro = new Enemy(imageEnemyPedro, width - 50, 0, 250, 250, 400, 400, 5, 5, 10);
+		const enemyCarol = new Enemy(imageEnemyCarol, width - 50, 25, 75, 75, 105, 104, 7, 4, 10);
+		const enemyMel = new Enemy(imageEnemyMel, width - 50, 25, 75, 75, 105, 104, 7, 4, 10);
+		const enemyGabriel = new Enemy(imageEnemyGabriel, width - 50, -10, 250, 250, 400, 400, 5, 5, 10);
+		const enemyMauro = new Enemy(imageEnemyMauro, width - 50, -10, 250, 250, 400, 400, 5, 5, 10);
+		const enemyPedro = new Enemy(imageEnemyPedro, width - 50, -10, 250, 250, 400, 400, 5, 5, 10);
 		
 		this.enemies.push(enemyMiguel);
 		this.enemies.push(enemyPedroTri);
@@ -102,6 +105,7 @@ class Game {
 			damageSound.play();
 			if(live.currentLives < 0) {
 				currentScene = 'gameOver';
+				scenes[currentScene].setup();
 				score.saveScore();
 			}
 		}
