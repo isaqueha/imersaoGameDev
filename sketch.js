@@ -27,10 +27,10 @@ function draw() {
 }
 
 // TODO
-// Outline the enemy in RED
-// ScoreBoard (WriteJSON() function P5js???)
-// Change jorge char
 // 2nd level
+// Outline the enemy in RED
+// Change jorge char
+// ScoreBoard (WriteJSON() function P5js???)
 // Refactor constructors
 // Story
 // Car Sprite
