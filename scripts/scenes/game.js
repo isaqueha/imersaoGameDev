@@ -14,6 +14,7 @@ class Game {
 		strokeWeight(3);
 		
 		this.enemyIndex = 0;
+		this.enemyWave = 0;
 		this.enemies = [];
 
 		// const enemyFlying = new Enemy(imageEnemyFlying, width - 50, 75, 133, 100, 200, 150, 5, 3, 10);
@@ -86,7 +87,7 @@ class Game {
 		const enemy = this.enemies[currentLine.enemy];
 		const isEnemyDone = enemy.x < - enemy.newWidth;
 	
-		enemy.velocity = currentLine.velocity;
+		enemy.velocity = currentLine.velocity + ((currentLine.velocity / 100) * 30) * this.enemyWave;
 		enemy.draw();
 		enemy.move();
 		// console.log(enemy.x);
@@ -96,6 +97,7 @@ class Game {
 			enemy.respawn();
 			if (this.enemyIndex > this.map.length - 1) {
 				this.enemyIndex = 0;
+				this.enemyWave++;
 			}
 		}
 		
