@@ -26,6 +26,11 @@ class Start {
 		text("Corrida do", width / 2, height / 6);
 		textSize(150);
 		text("Jorge", width / 2, height / 2);
+		fill(255, 255, 255);
+		textSize(30);
+		text("Pule 1 ou 2 vezes com tecla pra cima ou com touch na tela", width / 2, height / 6 * 5);
+		textSize(25);
+		text("No celular jogue com o aparelho deitado", width / 2, height / 6 * 5.5);
 	}
 
 	_button() {
