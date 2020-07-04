@@ -26,6 +26,11 @@ function draw() {
   scenes[currentScene].draw();
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  currentScene = 'start';
+}
+
 // TODO
 // ScoreBoard
 // Improve collision
