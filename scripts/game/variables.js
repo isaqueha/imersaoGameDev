@@ -1,5 +1,6 @@
 let imageScenario;
 let imageCharacter;
+let imageCharacter2;
 let imageEnemyMiguel;
 let imageEnemyPedroTri;
 let imageEnemyYuri;

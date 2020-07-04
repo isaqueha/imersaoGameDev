@@ -5,7 +5,8 @@ class Game {
 	
 	setup() {
 		scenario = new Scenario(imageScenario, 2);
-		character = new Character(imageCharacter, 0, 30, 147, 180, 220, 270, 4, 4);
+		// character = new Character(imageCharacter, 0, 30, 147, 180, 220, 270, 4, 4);
+		character = new Character(imageCharacter2, 0, 30, 147, 213, 188, 273, 2, 5);
 		live = new Live(map.config.maxLives, map.config.initialLives);
 		
 		score = new Score();
