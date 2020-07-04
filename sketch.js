@@ -28,7 +28,6 @@ function draw() {
 
 // TODO
 // Outline the enemy in RED
-// Change jorge char
 // ScoreBoard (WriteJSON() function P5js???)
 // Refactor constructors
 // Story
