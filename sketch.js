@@ -28,9 +28,10 @@ function draw() {
 
 // TODO
 // ScoreBoard
+// Improve collision
 // 
-// 2nd level
 // Reduce bugs in images
+// 2nd level
 // Refactor constructors
 // Story
 // Car enemy Sprite
