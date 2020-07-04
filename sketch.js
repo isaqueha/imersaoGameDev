@@ -27,11 +27,13 @@ function draw() {
 }
 
 // TODO
-// Outline the enemy in RED
-// ScoreBoard (WriteJSON() function P5js???)
+// ScoreBoard
+// 
+// 2nd level
+// Reduce bugs in images
 // Refactor constructors
 // Story
 // Car enemy Sprite
-// 2nd level
+// Outline the enemy in RED???
 // PowerUp?
 // Leaderboard???
