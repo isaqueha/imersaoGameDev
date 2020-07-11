@@ -1,40 +1,40 @@
 {
   "config": {
-    "maxLives": 3,
-    "initialLives": 3
+    "maxLives": 5,
+    "initialLives": 5
   },
   "map": [
     {
       "enemy": 0,
-      "velocity": 8
+      "velocity": 18
     },
     {
       "enemy": 1,
-      "velocity": 10
+      "velocity": 20
     },
     {
       "enemy": 2,
-      "velocity": 12
+      "velocity": 22
     },
     {
       "enemy": 3,
-      "velocity": 13
+      "velocity": 23
     },
     {
       "enemy": 4,
-      "velocity": 14
+      "velocity": 24
     },
     {
       "enemy": 5,
-      "velocity": 15
+      "velocity": 25
     },
     {
       "enemy": 6,
-      "velocity": 13
+      "velocity": 23
     },
     {
       "enemy": 7,
-      "velocity": 17
+      "velocity": 27
     }
   ]
 }
