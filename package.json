@@ -5,7 +5,6 @@
   "main": "sketch.js",
   "author": "Isaque Hoffmeister de Azevedo <isaque.ha@gmail.com>",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "start": "browser-sync start --server -f -w"
   },
