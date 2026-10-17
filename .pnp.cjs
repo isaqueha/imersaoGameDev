@@ -671,7 +671,7 @@ const RAW_RUNTIME_STATE =
           ["cacheable-request", "npm:6.1.0"],\
           ["clone-response", "npm:1.0.2"],\
           ["get-stream", "npm:5.1.0"],\
-          ["http-cache-semantics", "npm:4.1.1"],\
+          ["http-cache-semantics", "npm:4.3.0"],\
           ["keyv", "npm:3.1.0"],\
           ["lowercase-keys", "npm:2.0.0"],\
           ["normalize-url", "npm:4.5.0"],\
@@ -2003,10 +2003,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["http-cache-semantics", [\
-      ["npm:4.1.1", {\
-        "packageLocation": "../../.yarn/berry/cache/http-cache-semantics-npm-4.1.1-1120131375-10c0.zip/node_modules/http-cache-semantics/",\
+      ["npm:4.3.0", {\
+        "packageLocation": "../../.yarn/berry/cache/http-cache-semantics-npm-4.3.0-ee45f76976-10c0.zip/node_modules/http-cache-semantics/",\
         "packageDependencies": [\
-          ["http-cache-semantics", "npm:4.1.1"]\
+          ["http-cache-semantics", "npm:4.3.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2960,7 +2960,7 @@ const RAW_RUNTIME_STATE =
     ]],\
     ["nodemon", [\
       ["npm:2.0.4", {\
-        "packageLocation": "./.yarn/unplugged/nodemon-npm-2.0.4-6cfc557b1b/node_modules/nodemon/",\
+        "packageLocation": "../../.yarn/berry/cache/nodemon-npm-2.0.4-6cfc557b1b-10c0.zip/node_modules/nodemon/",\
         "packageDependencies": [\
           ["chokidar", "npm:3.4.0"],\
           ["debug", "virtual:6cfc557b1b3ed98544cad13ffd74462797496fe01d0dd9649602e1c1359d7df7fba294f2ac2939dc40ca1a1f18a3b7641601422c7b242c5785fec1a2e013a42b#npm:3.2.6"],\
@@ -3001,7 +3001,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["hosted-git-info", "npm:2.8.9"],\
           ["normalize-package-data", "npm:2.5.0"],\
-          ["resolve", "patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=c3c19d"],\
+          ["resolve", "patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=9bd1a5"],\
           ["semver", "npm:5.7.2"],\
           ["validate-npm-package-license", "npm:3.0.4"]\
         ],\
@@ -3640,11 +3640,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["resolve", [\
-      ["patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=c3c19d", {\
-        "packageLocation": "../../.yarn/berry/cache/resolve-patch-a9574b134c-10c0.zip/node_modules/resolve/",\
+      ["patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=9bd1a5", {\
+        "packageLocation": "../../.yarn/berry/cache/resolve-patch-a499252afc-10c0.zip/node_modules/resolve/",\
         "packageDependencies": [\
           ["path-parse", "npm:1.0.7"],\
-          ["resolve", "patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=c3c19d"]\
+          ["resolve", "patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=9bd1a5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5083,16 +5083,16 @@ function convertToBigIntStats(stats) {
     if (Object.hasOwn(stats, key)) {
       const element = stats[key];
       if (typeof element === `number`) {
-        bigintStats[key] = BigInt(element);
+        bigintStats[key] = BigInt(Math.floor(element));
       } else if (nodeUtils__namespace.types.isDate(element)) {
         bigintStats[key] = new Date(element);
       }
     }
   }
-  bigintStats.atimeNs = bigintStats.atimeMs * BigInt(1e6);
-  bigintStats.mtimeNs = bigintStats.mtimeMs * BigInt(1e6);
-  bigintStats.ctimeNs = bigintStats.ctimeMs * BigInt(1e6);
-  bigintStats.birthtimeNs = bigintStats.birthtimeMs * BigInt(1e6);
+  bigintStats.atimeNs = bigintStats.atimeMs * BigInt(1e6) + BigInt(Math.floor(stats.atimeMs % 1 * 1e3)) * BigInt(1e3);
+  bigintStats.mtimeNs = bigintStats.mtimeMs * BigInt(1e6) + BigInt(Math.floor(stats.mtimeMs % 1 * 1e3)) * BigInt(1e3);
+  bigintStats.ctimeNs = bigintStats.ctimeMs * BigInt(1e6) + BigInt(Math.floor(stats.ctimeMs % 1 * 1e3)) * BigInt(1e3);
+  bigintStats.birthtimeNs = bigintStats.birthtimeMs * BigInt(1e6) + BigInt(Math.floor(stats.birthtimeMs % 1 * 1e3)) * BigInt(1e3);
   return bigintStats;
 }
 function areStatsEqual(a, b) {
@@ -7770,28 +7770,40 @@ class FileHandle {
   sync() {
     throw new Error(`Method not implemented.`);
   }
-  async read(bufferOrOptions, offset, length, position) {
+  async read(bufferOrOptions, offsetOrOptions, length, position) {
     try {
       this[kRef](this.read);
       let buffer;
-      if (!Buffer.isBuffer(bufferOrOptions)) {
-        bufferOrOptions ??= {};
-        buffer = bufferOrOptions.buffer ?? Buffer.alloc(16384);
-        offset = bufferOrOptions.offset || 0;
-        length = bufferOrOptions.length ?? buffer.byteLength;
-        position = bufferOrOptions.position ?? null;
+      let offset;
+      if (!ArrayBuffer.isView(bufferOrOptions)) {
+        buffer = bufferOrOptions?.buffer ?? Buffer.alloc(16384);
+        offset = bufferOrOptions?.offset ?? 0;
+        length = bufferOrOptions?.length ?? buffer.byteLength - offset;
+        position = bufferOrOptions?.position ?? null;
+      } else if (typeof offsetOrOptions === `object` && offsetOrOptions !== null) {
+        buffer = bufferOrOptions;
+        offset = offsetOrOptions?.offset ?? 0;
+        length = offsetOrOptions?.length ?? buffer.byteLength - offset;
+        position = offsetOrOptions?.position ?? null;
       } else {
         buffer = bufferOrOptions;
+        offset = offsetOrOptions ?? 0;
+        length ??= 0;
       }
-      offset ??= 0;
-      length ??= 0;
       if (length === 0) {
         return {
           bytesRead: length,
           buffer
         };
       }
-      const bytesRead = await this[kBaseFs].readPromise(this.fd, buffer, offset, length, position);
+      const bytesRead = await this[kBaseFs].readPromise(
+        this.fd,
+        // FIXME: FakeFS should support ArrayBufferViews directly
+        Buffer.isBuffer(buffer) ? buffer : Buffer.from(buffer.buffer, buffer.byteOffset, buffer.byteLength),
+        offset,
+        length,
+        position
+      );
       return {
         bytesRead,
         buffer
@@ -10186,7 +10198,8 @@ class ZipFS extends BasePortableFakeFS {
         const entries = Array.from(directoryListing, (name) => {
           return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
             name,
-            path: PortablePath.dot
+            path: PortablePath.dot,
+            parentPath: PortablePath.dot
           });
         });
         for (const entry of entries) {
@@ -10197,7 +10210,8 @@ class ZipFS extends BasePortableFakeFS {
           for (const child of subListing) {
             entries.push(Object.assign(this.statImpl(`lstat`, ppath.join(p, subPath, child)), {
               name: child,
-              path: subPath
+              path: subPath,
+              parentPath: subPath
             }));
           }
         }
@@ -10218,7 +10232,8 @@ class ZipFS extends BasePortableFakeFS {
       return Array.from(directoryListing, (name) => {
         return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
           name,
-          path: void 0
+          path: void 0,
+          parentPath: void 0
         });
       });
     } else {
@@ -10565,7 +10580,7 @@ function getPathForDisplay(p) {
   return npath.normalize(npath.fromPortablePath(p));
 }
 
-const [major, minor] = process.versions.node.split(`.`).map((value) => parseInt(value, 10));
+const [major, minor, patch] = process.versions.node.split(`.`).map((value) => parseInt(value, 10));
 const WATCH_MODE_MESSAGE_USES_ARRAYS = major > 19 || major === 19 && minor >= 2 || major === 18 && minor >= 13;
 
 function readPackageScope(checkPath) {
@@ -10600,9 +10615,9 @@ Instead change the require of ${basename} in ${parentPath} to a dynamic import()
   err.code = `ERR_REQUIRE_ESM`;
   return err;
 }
-function reportRequiredFilesToWatchMode(files) {
+function reportRequiredFilesToWatchMode(paths) {
   if (process.env.WATCH_REPORT_DEPENDENCIES && process.send) {
-    files = files.map((filename) => npath.fromPortablePath(VirtualFS.resolveVirtual(npath.toPortablePath(filename))));
+    const files = paths.map((filename) => npath.fromPortablePath(VirtualFS.resolveVirtual(filename)));
     if (WATCH_MODE_MESSAGE_USES_ARRAYS) {
       process.send({ "watch:require": files });
     } else {
@@ -10693,6 +10708,7 @@ function applyPatch(pnpapi, opts) {
       const optionNames = new Set(Object.keys(options));
       optionNames.delete(`paths`);
       optionNames.delete(`plugnplay`);
+      optionNames.delete(`conditions`);
       if (optionNames.size > 0) {
         throw makeError(
           ErrorCode.UNSUPPORTED,
@@ -10721,11 +10737,15 @@ function applyPatch(pnpapi, opts) {
       const issuerApi = apiPath !== null ? opts.manager.getApiEntry(apiPath, true).instance : null;
       try {
         if (issuerApi !== null) {
-          resolution = issuerApi.resolveRequest(request, path !== null ? `${path}/` : null);
+          resolution = issuerApi.resolveRequest(request, path !== null ? `${path}/` : null, {
+            conditions: options?.conditions
+          });
         } else {
           if (path === null)
             throw new Error(`Assertion failed: Expected the path to be set`);
-          resolution = originalModuleResolveFilename.call(require$$0.Module, request, module || makeFakeParent(path), isMain);
+          resolution = originalModuleResolveFilename.call(require$$0.Module, request, module || makeFakeParent(path), isMain, {
+            conditions: options?.conditions
+          });
         }
       } catch (error) {
         firstError = firstError || error;
@@ -12240,9 +12260,10 @@ Required by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDi
     const candidates = [];
     const qualifiedPath = applyNodeExtensionResolution(unqualifiedPath, candidates, { extensions });
     if (qualifiedPath) {
+      reportRequiredFilesToWatchMode([qualifiedPath]);
       return ppath.normalize(qualifiedPath);
     } else {
-      reportRequiredFilesToWatchMode(candidates.map((candidate) => npath.fromPortablePath(candidate)));
+      reportRequiredFilesToWatchMode(candidates);
       const unqualifiedPathForDisplay = getPathForDisplay(unqualifiedPath);
       const containingPackage = findPackageLocator(unqualifiedPath);
       if (containingPackage) {
