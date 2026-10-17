@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 8
+  version: 10
   cacheKey: 10c0
 
 "@sindresorhus/is@npm:^0.14.0":
@@ -1721,9 +1721,9 @@ __metadata:
   linkType: hard
 
 "http-cache-semantics@npm:^4.0.0":
-  version: 4.1.1
-  resolution: "http-cache-semantics@npm:4.1.1"
-  checksum: 10c0/ce1319b8a382eb3cbb4a37c19f6bfe14e5bb5be3d09079e885e8c513ab2d3cd9214902f8a31c9dc4e37022633ceabfc2d697405deeaf1b8f3552bb4ed996fdfc
+  version: 4.3.0
+  resolution: "http-cache-semantics@npm:4.3.0"
+  checksum: 10c0/b9668e271b4a99cba067bfa6f286b12eff1408a24e090ca16f0f5fa826ac07f67b4b8c7aa6e7458596d890683f3c172f647a00ca516a8f0158c80d7e4ebe0316
   languageName: node
   linkType: hard
 
@@ -3192,10 +3192,10 @@ __metadata:
 
 "resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>":
   version: 1.17.0
-  resolution: "resolve@patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.17.0#optional!builtin<compat/resolve>::version=1.17.0&hash=9bd1a5"
   dependencies:
     path-parse: "npm:^1.0.6"
-  checksum: 10c0/e072e52be3c3dbfd086761115db4a5136753e7aefc0e665e66e7307ddcd9d6b740274516055c74aee44921625e95993f03570450aa310b8d73b1c9daa056c4cd
+  checksum: 10c0/7ee56dea424a67d324beea1e203719e4bd14b1aa73ed510bdcda233d214d331e80fc87624b2ad7330cce5ddcdece42a68867d6ab7f6c137b3e7b7733c783c448
   languageName: node
   linkType: hard
 
